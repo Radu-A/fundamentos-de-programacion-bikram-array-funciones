@@ -16,19 +16,19 @@ function repetirString(str, num) {
     return str.repeat(num);
 };
 
-/*09 NUMERO PRIMO
 function esPrimo(num) {
-    if (num <= 1) {
+    if (num < 3) {
         return false;
     } else {
-        for (let i = 2; i < num, i++) {
-            if (num %i === 0) {
+        for (let i = 2; i < num; i++) {
+            if (num %i == 0) {
                 return false;
                 break;
             }
-        }
+        };
+        return true;
     }
-} */
+};
 
 function ordenarArray(numArray) {
     return numArray.sort();
@@ -36,16 +36,36 @@ function ordenarArray(numArray) {
 function obtenerPares(numArray) {
     let parArray = numArray.filter(element => element %2 === 0);
     return parArray;
-}
+};
 function pintarArray(srtArray) {
     return '[' + srtArray.join(', ') + ']';
-}
+};
 function arrayMapi(arr, func) {
     let newArr = arr.map(element => func(element));
     return newArr;
 };
 
-/*14 duplicados*/
+/*
+function eliminarDuplicados(array) {
+    for (let i = 0; i < array.length; i++) {
+        for (let j = i + 1; j < array.length; j++) {
+            if (array[i] === array[j]) {
+                array.splice(j, 1);
+            }
+        }
+    }
+  return array;
+}*/
+function eliminarDuplicados(array) {
+    let newArray = array.filter((element, index) => {
+        if (array.indexOf(element) === index) {
+            return element;
+        };
+    });
+    return newArray;
+}
+
+
 const arrayNumerosNeg = [0, -1, -2, -3, -4, -5, -6, -7, -8, -9];
 const holaMundo = ['Hola', 'Mundo'];
 const loGuardoTodo = ['hola', 'que', 23, 42.33, 'tal'];
@@ -64,15 +84,16 @@ function ordenarArray2(numArray) {
     return numArray.sort();
 };
 function obtenerImpares(numArray) {
-    let parimpArray = numArray.filter(element => element %2 === 0);
+    let parimpArray = numArray.filter(element => element %2 !== 0);
     return parimpArray;
-}
+};
 function sumarArray(numArray) {
-    return numArray.reduce();
-}
+    return numArray.reduce((acc, curr) => acc = acc + curr);
+};
 function multiplicarArray(numArray) {
-    let acumulador;
-    numArray.forEach
-}
+    let acc = 1;
+    numArray.forEach(element => acc = acc * element);
+    return acc;
+};
 
 console.log(obtenerPares([3, 4, 5, 6, 7, 8 , 7, 4, 3, 2]));
